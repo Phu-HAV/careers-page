@@ -12,5 +12,13 @@
     "browser-sync": "^2.26.12",
     "gulp": "^4.0.0",
     "gulp-sass": "^4.0.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Phu-HAV/Starter-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Phu-HAV/Starter-template/issues"
+  },
+  "homepage": "https://github.com/Phu-HAV/Starter-template#readme"
 }

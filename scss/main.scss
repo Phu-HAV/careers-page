@@ -6,109 +6,199 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #3f3f3f;
+
+    img {
+        width: 100%;
+    }
 
     a {
         text-decoration: none;
     }
 
     .container {
-        max-width: 1200px;
+        max-width: 1000px;
+        height: 100%;
         margin: 0 auto;
+        background-color: #fff;
+        color: black;
+        z-index: -100;
+    }
+}
+
+.hero {
+    position: relative;
+    min-height: 350px;
+    text-align: center;
+    background: url(../images/careers/hero-image.jpg) no-repeat center center;
+    background-size: cover;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero::before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.hero-text {
+    color: #fff;
+    max-width: 700px;
+    padding: 0 20px;
+    z-index: 10;
+    font-size: 14px;
+}
+
+.hero-title {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.careers {
+    padding: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 3em;
+}
+
+.careers-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+
+    height: 230px;
+}
+
+.careers-box-time,
+.careers-box-caption {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.7s;
+    transition: all 0.6s ease-out;
+}
+
+.careers-box:hover {
+    
+    .careers-box-time,
+    .careers-box-caption {
+        visibility: visible;
+        opacity: 1;
     }
 
-    .hero {
-        background: url(../images/hero-image.PNG) top center;
-        background-size: cover;
-        position: relative;
-        padding: 200px 0;
+    .careers-box-title {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
 
-        &--text {
-            max-width: 700px;
-            background-color: #fff;
-            margin: 0 auto;
-            padding: 40px;
-            text-align: center;
-            z-index: 10;
-            opacity: .9;
-        }
+.careers-box:hover::before {
+    background-color: rgba(0, 0, 0, 0.8);
+}
 
-        &--title {
-            text-transform: uppercase;
-            font-size: 30px;
-            font-weight: bold;
-            color: $primary-color;
-            padding-bottom: 10px;
-        }
 
-        &--desc {
-            line-height: 1.5em;
-            font-weight: 300;
+.careers-box-text,
+.careers-box-title {
+    position: absolute;
+    color: #fff;
+    width: 100%;
+    z-index: 15;
+    overflow: hidden;    
+    transition: all 0.3s ease-in-out;
+    padding: 0 20px;
+}
+
+.careers-box-title {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 0 10px;
+}
+
+.careers-box-time {
+    font-size: 16px;
+    padding: 8px 15px;
+}
+
+.careers-box-caption {
+    font-size: 12px;
+    padding: 0 15px;
+}
+
+.careers-box::before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: all 0.6s ease-out;
+    z-index: 12;
+}
+
+.box-alarm {
+    background: url(../images/careers/image2.jpg) no-repeat center center;
+}
+.box-cassales {
+    background: url(../images/careers/image3.jpg) no-repeat center center;
+}
+.box-homeavsales {
+    background: url(../images/careers/image4.jpg) no-repeat center center;
+}
+.box-customerservice {
+    background: url(../images/careers/image5.jpg) no-repeat center center;
+}
+.box-warehouse {
+    background: url(../images/careers/image6.jpg) no-repeat center center;
+}
+
+.box-alarm,
+.box-cassales,
+.box-customerservice,
+.box-homeavsales,
+.box-warehouse {    
+    background-size: cover;
+}
+
+.brand-logos {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding: 0 100px;
+    flex-wrap: wrap;
+    
+    div {
+        padding: 20px;
+
+        img {
+            max-width: 150px;
         }
     }
+}
 
-    .card {
-        position: relative;
-        color: white;
-        height: 500px;
-
-        &--title {
-            position: relative;
-            text-align: center;
-            padding: 10px 0;
-            z-index: 5;
-            text-transform: uppercase;
-            background-color: rgba(0, 0, 0, 0.3);
-        }
-
-        &--link a {
-            color: #fff;
-        }
-    }
-
-    .cards {
-        width: 100%;
-        display: grid;
+@media only screen and (max-width: 800px) {
+    .careers {
         grid-template-columns: repeat(2, 1fr);
     }
+}
 
-    .speaker {
-
-        &--circular {
-            background: url(../images/round-ceiling-speakers.png) right -200px bottom -250px no-repeat;
-            background-size: 600px 600px;
-            background-color: #FF5454;
-        }
-        
-        &--square {
-            background: url(../images/square-ceiling-speakers.png) right -200px bottom -250px no-repeat;
-            background-size: 600px 600px;
-            background-color:blueviolet;
-        }
-
-        &--packages {
-            background: url(../images/bundle.png) right -100px bottom -50px no-repeat;
-            background-size: 500px 500px;
-            background-color: seagreen;
-        }
-        
-        &--accessory {
-            background: url(../images/accessory.png) right -200px bottom -200px no-repeat;
-            background-size: 600px 600px;
-            background-color: cadetblue;
-        }
+@media only screen and (max-width: 500px) {
+    .hero-title {
+        font-size: 35px;
     }
 
-    // MEDIA QUERIES / RESPONSIVENESS
-    @media (max-width: 900px) { // TABLET
-        .cards { 
-            grid-template-columns: repeat(2, 1fr); 
-        }
+    .careers {
+        grid-template-columns: repeat(1, 1fr);
     }
-
-    @media (max-width: 600px) { // MOBILE
-        .cards { 
-            grid-template-columns: repeat(1, 1fr); 
-        }
-    }
-
 }
